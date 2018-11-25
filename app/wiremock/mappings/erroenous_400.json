@@ -1,0 +1,10 @@
+{
+  "request" : {
+    "url" : "/binding-api/api/bind/datarequest?amount=400",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 400,
+    "body" : "{\"message\":\"400 Bad Request\"}"
+  }
+}

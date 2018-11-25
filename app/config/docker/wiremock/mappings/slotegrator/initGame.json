@@ -1,0 +1,10 @@
+{
+  "request": {
+    "urlPath": "/slotegrator/api/index.php/v1/games/init",
+    "method": "POST"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "slotegrator/initGame.json"
+  }
+}

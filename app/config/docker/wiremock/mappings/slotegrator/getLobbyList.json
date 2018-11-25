@@ -1,0 +1,10 @@
+{
+  "request": {
+    "urlPath": "/slotegrator/api/index.php/v1/games/lobby",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "slotegrator/getLobbyList.json"
+  }
+}

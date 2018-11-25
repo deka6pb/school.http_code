@@ -1,0 +1,11 @@
+{
+  "request" : {
+    "url" : "/binding-api/api/bind/datarequest?amount=504",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "fixedDelayMilliseconds": 5000,
+    "body" : "{\"externalId\":\"1\"}"
+  }
+}

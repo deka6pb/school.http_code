@@ -1,0 +1,10 @@
+{
+  "request" : {
+    "url" : "/frontend-api/api/deposit/channels",
+    "method" : "POST"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"channels\":[{\"channel\":\"WALLET_OK\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"none\",\"paymentType\":\"both\",\"title\":\"\u041a\u043e\u0448\u0435\u043b\u0435\u043a \u0426\u0423\u041f\u0418\u0421 (\u0442\u0435\u0441\u0442 ok)\"},{\"channel\":\"WALLET_FAIL\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"none\",\"paymentType\":\"both\",\"title\":\"\u041a\u043e\u0448\u0435\u043b\u0435\u043a \u0426\u0423\u041f\u0418\u0421 (\u0442\u0435\u0441\u0442 fail)\"},{\"channel\":\"CARD_OK\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"iframe\",\"paymentType\":\"pull\",\"title\":\"\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043a\u0430\u0440\u0442\u0430 (\u0442\u0435\u0441\u0442 ok)\"},{\"channel\":\"CARD_FAIL\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"iframe\",\"paymentType\":\"both\",\"title\":\"\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043a\u0430\u0440\u0442\u0430 (\u0442\u0435\u0441\u0442 fail)\"},{\"channel\":\"CARD_OK_FAIL\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"iframe\",\"paymentType\":\"both\",\"title\":\"\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043a\u0430\u0440\u0442\u0430 (\u0442\u0435\u0441\u0442 ok|fail)\"},{\"channel\":\"CARD\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"iframe\",\"paymentType\":\"both\",\"title\":\"\u0411\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043a\u0430\u0440\u0442\u0430\"},{\"channel\":\"WALLET\",\"minAmount\":100,\"maxAmount\":41270,\"currency\":\"RUR\",\"iframe\":\"none\",\"paymentType\":\"both\",\"title\":\"\u041a\u043e\u0448\u0435\u043b\u0435\u043a \u0426\u0423\u041f\u0418\u0421\"}]}"
+  }
+}

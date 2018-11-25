@@ -1,0 +1,61 @@
+{
+  "lobby": [
+    {
+      "lobbyData": "WDNTaW5QR0J5TDNIL3E4emphWXEzaW9pZ3RuYStyV3RGRDF0Tnp1WERLVVhkcDhYZUJFckhTbkxKeHp5cjBKNU5vWU9iZzJPY1RpeFIrOXBWQW5vbHpNRDVwOTNvbGdRQmc1VmpLcTA2RHpxb3p6V0lqNmpLU1dCb3dwZWFCMFlPeXc3aXNBaUxFNkhjQXdYWHQzc3ZMTGtiRlhldXovcUx2U2pZRnRHM2daZ3oyL2lab2k2STFnQldBZlJSM1UrdUlSZWV3OExhOEh3ejhDK1A3RG1PcVFIMUw3K2FhMDJlV2dGVzJWTDkvZmExK3FHVWVoRHdBODlCUE03MllZQ3F6UE1SK1RWaFBCcGVNbmpVd1kveFBMcERUL3N1N0VHTDZ1NitCVmo3RmZTT0ZtNGlrbzYvQjRPZVZnTUZFQnllaENJU0o4ZVA3R1RvZDUwdlNNOExZK25lRnpjSjV4OEFObEpCT3JudDB4MENIdWc4OHhnSE1XYVVUVlhkVnZLeUUwcWd5RW5pN1JvVWZMK0VYYW1ibGxBcEwrVERackM0eU5BWnlaVzh5WVBoc3M3K2RuUW5HbmlOUFZMckdjN3poc01yYm0rdm9rOHo4SGc3TUtLNGtycHBpV3VVQXhtNjNHdDFZc0N3NFJMclIxMyt5NjBzSVduSVJ2OWVpTGNhdm5DT3VhR3dhRUVycVVvZ1p4MktGOSt5blBSSUNMRlY4OXZTQkpldXkxdXdZbEJXOGZEWlRScDV0bGtweC9NYjVwSGJaNGtlVHpkbHptME44UmwyVy9jVk14OS81R1NDRjNYVVdqVzFOWkdHaCtoQmpkL0QxOHE1cytIakMrUg==",
+      "tableId": "e822e1590e58a0330d0ecabb1965ba45fe2d2cf6",
+      "limitSetId": "7181659",
+      "name": "Blackjack - table 16 - VIP",
+      "isOpen": true,
+      "openTime": "00:00",
+      "closeTime": "23:59",
+      "dealerName": "STEFANY M",
+      "dealerAvatar": "https://tables.kasoom.com/assets/dealers/STEFANY M.jpeg",
+      "limits": [
+        {
+          "currency": "RUB",
+          "min": "10",
+          "max": "100000"
+        }
+      ],
+      "technology": "flash"
+    },
+    {
+      "lobbyData": "WDNTaW5QR0J5TDNIL3E4emphWXEzaW9pZ3RuYStyV3RGRDF0Tnp1WERLVVhkcDhYZUJFckhTbkxKeHp5cjBKNU5vWU9iZzJPY1RpeFIrOXBWQW5vbHpNRDVwOTNvbGdRQmc1VmpLcTA2RHpxb3p6V0lqNmpLU1dCb3dwZWFCMFlPeXc3aXNBaUxFNkhjQXdYWHQzc3ZLaGFuVUFtRWtxOEIvMU4rd1Z3OVlHS2dvMlZUQnEvTUtFWWl0ZkJUcndtY0hnWmhXUld4ZUFTOGN1NTBSblc5bWEwQ2ZLNEZXQUkwaEwzTXlyT09nMDZBNDVGcnFnTzljYmh5aVRPYTRJREJNeHVyVzNQazhUVXBxSE1DaUk1MDdibE9MV2p6ZGNtbnNjYlNvbUtOOExpRHd4clFuNlRvdjdyN3pLdGRscDNIMVBnU2d1Sjl4TXM0ZFpsamZCNDluMG0xYlN0ZkJGcXQzV0RHdTlYc0l0V0IydUFiNW83QUNWSVRpUGR4Sm5SVk5YMlpObERad01WSHRvejJYN2pJdEh4UjN1UjZWd2w3ZmUwUE12T2UyZjM4MEJxTkovQVlrN09Zcm43RFpwalN1ODhZdE5tUnMvNEppdm1YbkZwN293U002aWR0Y21IdVZMN1F2aEllVTVuVFFlN3V1N3NRZVhDSm1UekZNdTh5UkJHdEUveFhHYW1PZklOUDExZkM5c05xTkdOcGFzNXU3ajU3TVp3MUQreml3bGVzZnBodml4djB3NkZpNGpKbTQ2RE5IbHR4K0ZiRWdiMXZ3QWxKOTFPcGZzZXZKNUVMTWNIaHRiMktpc2pSSXltczlZNllKZ3ZHV2MzMU9KWA==",
+      "tableId": "c4a59bb3fc945cb1ab0312fe98b6226a554d1a5f",
+      "limitSetId": "7181675",
+      "name": "Blackjack - table 18 - VIP",
+      "isOpen": true,
+      "openTime": "00:00",
+      "closeTime": "23:59",
+      "dealerName": "CATHERINE P",
+      "dealerAvatar": "https://tables.kasoom.com/assets/dealers/CATHERINE P.jpeg",
+      "limits": [
+        {
+          "currency": "RUB",
+          "min": "10",
+          "max": "100000"
+        }
+      ],
+      "technology": "flash"
+    },
+    {
+      "lobbyData": "WDNTaW5QR0J5TDNIL3E4emphWXEzaW9pZ3RuYStyV3RGRDF0Tnp1WERLVVhkcDhYZUJFckhTbkxKeHp5cjBKNU5vWU9iZzJPY1RpeFIrOXBWQW5vbHpNRDVwOTNvbGdRQmc1VmpLcTA2RHpxb3p6V0lqNmpLU1dCb3dwZWFCMFlPeXc3aXNBaUxFNkhjQXdYWHQzc3ZOeGROMXU4eVFTWDBYTE5XclFSOWRzeHBjWXd6NTd0a1h3cHllM0dVamMrRnh1R05SUmxpSlp3TGdlU0VBMEcrWWFQSmdSM1RXR29CQTdEUmdKelBGK2NFSG9RVW1qMzlTQVh4VjI5TVhHTExEUEdRUWIyRjdGclFyMS9qaW5wUERnZ2YxOXMxQ0RIZFhJRFJnaGovQU5GR3RHUjA0T1RmRU13cHdraC9sRUFyaktIZVduU2QyWFJIZ2JaWFd3Z3JGazNhRk9ORkZUSFdiVlpJMVE3b2RYbUhxTVpMcTZZbmF6c3R1U0xya3ZJV2dFV3o5bFJvMWVFU1NtVGt4Y0ZQWjlpQndzY2NHQjZzd1VtVHFjVEtwMzZ1dnIzckJ4UHBYUEdQNlFKTFdla0pSeDdrNUZjaWVRcE9pYmJqNGFvYmp1M3U0U0RjNUR1WGVwL3BGMWVFQzc1NGxwMjVNbDcva1dHZHpIblZtRTlWc2NRVVFaUllwODFmVk1qT01rNWY3d09UU01kUHBNdnZ4bFBFSWNWcnNybysrVVNabldpVHZvMVVKRnhUTVVHRk9Zd2JNWlJjNE1Yb0QzNng4bU45U1Q3OEx3ZjhZbFh6K25QOWhqNzN3RDEyd0JmMHcrMVo5QUpRNXZiR3B4RA==",
+      "tableId": "0876673096369f8b5d1872d56a4a5875f8d6d7d2",
+      "limitSetId": "7181678",
+      "name": "Blackjack - table 52 - VIP",
+      "isOpen": true,
+      "openTime": "00:00",
+      "closeTime": "23:59",
+      "dealerName": "LINA C",
+      "dealerAvatar": "https://tables.kasoom.com/assets/dealers/LINA C.jpeg",
+      "limits": [
+        {
+          "currency": "RUB",
+          "min": "10",
+          "max": "100000"
+        }
+      ],
+      "technology": "flash"
+    }
+  ]
+}

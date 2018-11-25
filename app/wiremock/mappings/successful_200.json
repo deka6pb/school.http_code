@@ -1,0 +1,10 @@
+{
+  "request" : {
+    "url" : "/binding-api/api/bind/datarequest?amount=200",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"externalId\":\"1\"}"
+  }
+}

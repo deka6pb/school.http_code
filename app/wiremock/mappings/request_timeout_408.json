@@ -1,0 +1,9 @@
+{
+  "request" : {
+    "url" : "/binding-api/api/bind/datarequest?amount=408",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 408
+  }
+}
