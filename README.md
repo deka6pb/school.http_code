@@ -5,5 +5,9 @@ docker-compose up -d --build
 ```
 
 ```
-bin/console doctrine:schema:update --force
+composer install
+```
+
+```
+docker exec app php /app/bin/console doctrine:schema:update --force
 ```

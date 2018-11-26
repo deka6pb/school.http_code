@@ -17,9 +17,7 @@ use Throwable;
 class DefaultController extends Controller
 {
     const STATUS_INIT = 'init';
-    const STATUS_PROCESS = 'process';
-    const STATUS_UNCERTAINLY = 'uncertainly';
-    const STATUS_FINISHED = 'finished';
+    const STATUS_SUCCESSFUL = 'successful';
 
     const EXTERNAL_SERVICE_HOST = 'http://wiremock';
 
@@ -55,6 +53,12 @@ class DefaultController extends Controller
 
             return $this->createErroneousResponse($e->getMessage());
         }
+
+        $this->entityManager->flush(
+            $payout
+                ->setStatus(self::STATUS_SUCCESSFUL)
+                ->setExternalId($externalId)
+        );
 
         return $this->createSuccessfulResponse($externalId);
     }
