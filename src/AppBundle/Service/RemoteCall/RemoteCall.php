@@ -103,27 +103,11 @@ class RemoteCall implements RemoteCallInterface
      */
     private function send(RequestInterface $httpRequest): ResponseInterface
     {
-//        try {
-//            return $this->transport->send(
-//                $httpRequest,
-//                [
-//                    'timeout' => 2,
-//                    'connect_timeout' => 2,
-//                ]
-//            );
-//        } catch (BadResponseException $e) {
-//            if (!$e->hasResponse()) {
-//                throw $e;
-//            }
-//
-//            return $e->getResponse();
-//        }
-
         return $this->transport->send(
             $httpRequest,
             [
-//                'timeout' => 7,
-//                'connect_timeout' => 2,
+                'timeout' => 2,
+                'connect_timeout' => 2,
             ]
         );
     }
