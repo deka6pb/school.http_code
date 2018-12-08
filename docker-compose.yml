@@ -18,14 +18,14 @@ services:
             - "81:80"
 
     wiremock:
-        container_name: wiremock
+        container_name: test-wiremock
         image: rodolpheche/wiremock
         volumes:
             - ./app/wiremock:/home/wiremock
         expose:
             - 80
         ports:
-            - "8088:80"
+            - "8089:80"
         command:
             - "java"
             - "-cp"
@@ -37,9 +37,9 @@ services:
             - "--verbose"
 
     db:
-        container_name: db
+        container_name: test-db
         image: percona/percona-server:5.7
-        ports: ["3306:3306"]
+        ports: ["3320:3306"]
         environment:
             MYSQL_ROOT_PASSWORD: test
             MYSQL_USER: test

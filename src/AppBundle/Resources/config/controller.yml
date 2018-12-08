@@ -1,0 +1,6 @@
+services:
+    logistic_orders.controller.health_check:
+        class: AppBundle\Controller\CoolController
+        arguments:
+            - '@app_bundle.service.remote_call.remote_call'
+            - '@doctrine.orm.entity_manager'

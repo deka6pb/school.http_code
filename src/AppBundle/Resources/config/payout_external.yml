@@ -1,0 +1,25 @@
+services:
+    app_bundle.service.remote_call.remote_call:
+        class: AppBundle\Service\RemoteCall\RemoteCall
+        arguments:
+            - '@app_bundle.service.common.transport'
+            - '@app_bundle.service.remote_call.request_assembler'
+            - '@app_bundle.service.remote_call.response_assembler'
+            - '@debug.stopwatch'
+            - '@logger'
+
+    app_bundle.service.common.transport:
+        class: GuzzleHttp\Client
+        arguments:
+            -
+                connect_timeout: 2
+                timeout: 2
+
+    app_bundle.service.remote_call.request_assembler:
+        class: AppBundle\Service\RequestAssembler\Assembler
+        arguments:
+            - 'GET'
+            - 'http://wiremock'
+
+    app_bundle.service.remote_call.response_assembler:
+        class: AppBundle\Service\ResponseParser\Parser

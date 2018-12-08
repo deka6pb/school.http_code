@@ -3,31 +3,33 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Payout;
+use AppBundle\Operation\Payout\Create\Dto\Request as BusinessRequest;
+use AppBundle\Service\RemoteCall\Exception\ConnectionTimeoutException;
+use AppBundle\Service\RemoteCall\Exception\InteractionException;
+use AppBundle\Service\RemoteCall\RemoteCallInterface;
+use AppBundle\Service\RemoteCall\RemoteCallResult;
+use AppBundle\Service\ResponseParser\Exception\InvalidResponseException;
 use Doctrine\ORM\EntityManagerInterface;
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ConnectException;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
-class MyController extends Controller
+class CoolController extends Controller
 {
     const STATUS_INIT = 'init';
     const STATUS_PROCESS = 'process';
     const STATUS_UNCERTAINLY = 'uncertainly';
+    const STATUS_ERROR_RESPONSE = 'errorResponse';
     const STATUS_ERRONEOUS = 'erroneous';
     const STATUS_SUCCESSFUL = 'successful';
 
-    const EXTERNAL_SERVICE_HOST = 'http://wiremock';
-
     /**
-     * @var ClientInterface
+     * @var RemoteCallInterface
      */
-    private $client;
+    private $createPayoutRemoteCall;
 
     /**
      * @var EntityManagerInterface
@@ -39,7 +41,7 @@ class MyController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $this->client = new Client();
+        $this->createPayoutRemoteCall = $this->get('app_bundle.service.remote_call.remote_call');
         $this->entityManager = $this->getDoctrine()->getManager();
 
         $amount = $request->query->getInt('amount');
@@ -53,16 +55,24 @@ class MyController extends Controller
         $this->entityManager->flush($payout->setStatus(self::STATUS_PROCESS));
 
         try {
-            $externalId = $this->createExternalPayout($payout);
-        } catch (ConnectException $e) {
-            $payout->setStatus(self::STATUS_UNCERTAINLY);
-            $this->entityManager->flush($payout);
+            $remoteCallResult = $this->createPayoutRemoteCall->invoke(new BusinessRequest($payout));
+            /* @var RemoteCallResult $remoteCallResult */
+        } catch (ConnectionTimeoutException $e) {
+            $this->entityManager->flush($payout->setStatus(self::STATUS_UNCERTAINLY));
 
-            return $this->createErroneousResponse('Timeout');
-        } catch (Throwable $e) {
+            return $this->createErroneousResponse($e->getMessage());
+        } catch (InteractionException $e) {
             $this->entityManager->flush($payout->setStatus(self::STATUS_ERRONEOUS));
 
             return $this->createErroneousResponse($e->getMessage());
+        }
+
+        try {
+            $externalId = $remoteCallResult->parse()->getExternalId();
+        } catch (InvalidResponseException $e) {
+            $this->entityManager->flush($payout->setStatus(self::STATUS_ERROR_RESPONSE));
+
+            return $this->createErroneousResponse('Response not valid');
         }
 
         $this->entityManager->flush(
@@ -86,21 +96,6 @@ class MyController extends Controller
         $this->entityManager->flush();
 
         return $payout;
-    }
-
-    private function createExternalPayout(Payout $payout): string
-    {
-        $response = $this->client->request(
-            'GET',
-            self::EXTERNAL_SERVICE_HOST . '/binding-api/api/bind/datarequest?amount='.$payout->getAmount(),
-            [
-                'timeout' => 2,
-                'connect_timeout' => 2,
-            ]
-        );
-        $body = (array)\GuzzleHttp\json_decode($response->getBody());
-
-        return $body['externalId'];
     }
 
     private function createErroneousResponse(string $message): Response
