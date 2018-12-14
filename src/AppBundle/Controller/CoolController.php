@@ -6,6 +6,7 @@ use AppBundle\Entity\Payout;
 use AppBundle\Operation\Payout\Create\Dto\Request as BusinessRequest;
 use AppBundle\Service\RemoteCall\Exception\ConnectionTimeoutException;
 use AppBundle\Service\RemoteCall\Exception\InteractionException;
+use AppBundle\Service\RemoteCall\Exception\ServerException;
 use AppBundle\Service\RemoteCall\RemoteCallInterface;
 use AppBundle\Service\RemoteCall\RemoteCallResult;
 use AppBundle\Service\ResponseParser\Exception\InvalidResponseException;
@@ -61,6 +62,10 @@ class CoolController extends Controller
             $this->entityManager->flush($payout->setStatus(self::STATUS_UNCERTAINLY));
 
             return $this->createErroneousResponse($e->getMessage());
+        } catch (ServerException $e) {
+            $this->entityManager->flush($payout->setStatus(self::STATUS_UNCERTAINLY));
+
+            return $this->createErroneousResponse($e->getMessage());
         } catch (InteractionException $e) {
             $this->entityManager->flush($payout->setStatus(self::STATUS_ERRONEOUS));
 
@@ -75,11 +80,7 @@ class CoolController extends Controller
             return $this->createErroneousResponse('Response not valid');
         }
 
-        $this->entityManager->flush(
-            $payout
-                ->setStatus(self::STATUS_SUCCESSFUL)
-                ->setExternalId($externalId)
-        );
+        $this->updatePayout($payout, $externalId);
 
         return $this->createSuccessfulResponse($externalId);
     }
@@ -124,5 +125,14 @@ class CoolController extends Controller
                         ],
                 ]
             );
+    }
+
+    private function updatePayout(Payout $payout, string $externalId)
+    {
+        $this->entityManager->flush(
+            $payout
+                ->setStatus(self::STATUS_SUCCESSFUL)
+                ->setExternalId($externalId)
+        );
     }
 }

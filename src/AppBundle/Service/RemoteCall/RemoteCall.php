@@ -2,14 +2,18 @@
 
 namespace AppBundle\Service\RemoteCall;
 
+use AppBundle\Service\RemoteCall\Exception\ClientException;
 use AppBundle\Service\RemoteCall\Exception\ConnectionException;
-use AppBundle\Service\RemoteCall\Exception\InteractionException;
 use AppBundle\Service\RemoteCall\Exception\ConnectionTimeoutException;
+use AppBundle\Service\RemoteCall\Exception\InteractionException;
+use AppBundle\Service\RemoteCall\Exception\ServerException;
 use AppBundle\Service\RequestAssembler\RequestAssemblerInterface;
 use AppBundle\Service\ResponseParser\ResponseParserInterface;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException as GuzzleClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ServerException as GuzzleServerException;
 use GuzzleHttp\Exception\TransferException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -85,6 +89,18 @@ class RemoteCall implements RemoteCallInterface
             }
 
             throw new ConnectionException('Remote call connection exception occurred', 0, $e);
+        } catch (GuzzleClientException $e) {
+            $this->stopTimer();
+
+            $this->logException($e);
+
+            throw new ClientException('Remote call client exception occurred', 0, $e);
+        } catch (GuzzleServerException $e) {
+            $this->stopTimer();
+
+            $this->logException($e);
+
+            throw new ServerException('Remote call server exception occurred', 0, $e);
         } catch (TransferException $e) {
             $this->stopTimer();
 

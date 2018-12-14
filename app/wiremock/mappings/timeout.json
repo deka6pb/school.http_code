@@ -1,6 +1,6 @@
 {
   "request" : {
-    "url" : "/binding-api/api/bind/datarequest?amount=0",
+    "url" : "/binding-api/api/bind/datarequest?amount=2000",
     "method" : "GET"
   },
   "response" : {
