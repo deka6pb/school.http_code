@@ -46,18 +46,15 @@ class BadController extends Controller
             $payout = $this->savePayout($amount);
             $externalId = $this->createExternalPayout($payout);
 
+            $this->updatePayout($payout, $externalId);
+
             $this->entityManager->commit();
         } catch (Throwable $e) {
+            var_dump($e);
             $this->entityManager->rollback();
 
             return $this->createErroneousResponse($e->getMessage());
         }
-
-        $this->entityManager->flush(
-            $payout
-                ->setStatus(self::STATUS_SUCCESSFUL)
-                ->setExternalId($externalId)
-        );
 
         return $this->createSuccessfulResponse($externalId);
     }
@@ -117,5 +114,15 @@ class BadController extends Controller
                         ],
                 ]
             );
+    }
+
+    private function updatePayout(Payout $payout, string $externalId)
+    {
+        $payout
+            ->setStatus(self::STATUS_SUCCESSFUL)
+            ->setExternalId($externalId);
+
+        $this->entityManager->persist($payout);
+        $this->entityManager->flush($payout);
     }
 }
